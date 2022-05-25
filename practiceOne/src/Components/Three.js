@@ -5,14 +5,13 @@ import styled from "styled-components";
 import { scroll } from "../atom";
 
 const Container=styled.div`
+    position:relative;
     width:100vw;
     height:100vh;
     background-image: url("images/3.jpg");
     background-repeat: no-repeat;
     background-size:cover;
-    position:fixed;
-    top:0;
-    left:0;
+    background-attachment: fixed;
     z-index:10;
 `;
 const TextBox=styled(motion.div)`
@@ -20,9 +19,8 @@ const TextBox=styled(motion.div)`
     height:340px;
     background-color:white;
     position:absolute;
-    left:0;
     top:50%;
-    transform:translateY(-50%);
+    left:0;
     padding: 0 40px;
     box-sizing: border-box;
     color:#39454B;
@@ -66,7 +64,7 @@ function Three(){
     },[scrollValue]);
     return (
         <Container ref={component}>
-            <TextBox initial={{x:"-100%",y:"-50%"}} animate={cardAni} transition={{type:"linear", duration:0.5}}>
+            <TextBox initial={{x:"-100%", y:"-50%"}} animate={cardAni} transition={{type:"linear", duration:0.5}}>
                 <h1>Who I Am</h1>
                 <span>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum. Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis arcu, id varius justo euismod in. Curabitur egestas consectetur magna.</span>
             </TextBox>

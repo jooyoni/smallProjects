@@ -4,12 +4,15 @@ import styled from "styled-components";
 import { scroll } from "../atom";
 
 const Container=styled.div`
-    position:fixed;
-    top:0;
-    left:0;
+    position:relative;
     width:100%;
     height:100vh;
     z-index:${props=>props.index?"11":"9"};
+    background: url("images/1.jpg");
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 `;
 const Img=styled.img`
     width:100%;
@@ -71,7 +74,6 @@ function First(){
     }
     return (
         <Container index={zIndex}>
-            <Img src="images/1.jpg" />
             <Text>
                 <div>Hey.</div>
                 <div>Welcome to <span style={{fontWeight:"900"}}>Big Picture</span> a responsive site template designed by <span className="underLine">HTML5 UP</span> and released for free under the <span className="underLine">Creative Commons Attribution license.</span></div>

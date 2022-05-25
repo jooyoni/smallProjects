@@ -10,6 +10,7 @@ const Container=styled.div`
     background-image: url("images/2.jpg");
     background-repeat: no-repeat;
     background-size:cover;
+    background-attachment: fixed;
     position:relative;
     z-index:20;
 `;

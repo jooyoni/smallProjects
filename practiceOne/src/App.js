@@ -28,10 +28,7 @@ const Filter=styled(motion.div)`
   z-index:100;
   background-color:white;
 `;
-const Space=styled.div`
-  width:100%;
-  height:100vh;
-`;
+
 function App() {
   const filterAni=useAnimation();
   const {scrollY}=useViewportScroll();
@@ -48,10 +45,8 @@ function App() {
     <Container className="container">
       <Header />
       <First />
-      <Space />
       <Two />
       <Three />
-      <Space />
       <Four />
       <Filter initial={{opacity:1}} animate={filterAni} transition={{duration:2}} />
     </Container>

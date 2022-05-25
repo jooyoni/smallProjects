@@ -13,7 +13,7 @@ const Container=styled(motion.div)`
     width:100%;
     padding:0 15px;
     box-sizing: border-box;
-    z-index:100;
+    z-index:999;
 `;
 const Logo=styled.h1`
     color:#39454b;
