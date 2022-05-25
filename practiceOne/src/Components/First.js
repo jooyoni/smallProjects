@@ -1,7 +1,15 @@
+import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { scroll } from "../atom";
 
 const Container=styled.div`
-    position:relative;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    z-index:${props=>props.index?"11":"9"};
 `;
 const Img=styled.img`
     width:100%;
@@ -50,12 +58,20 @@ const ArrowBtn=styled.div`
     }
 `;
 function First(){
+    const scrollValue=useRecoilValue(scroll);
+    const [zIndex, setZIndex]=useState(true);
+    useEffect(()=>{
+        if(scrollValue > window.innerHeight)
+            setZIndex(false);
+        else
+            setZIndex(true);
+    },[scrollValue]);
     function nextPage(){
         window.scrollTo({top:window.innerHeight ,behavior:"smooth"})
     }
     return (
-        <Container>
-            <Img src="images/intro.jpg" />
+        <Container index={zIndex}>
+            <Img src="images/1.jpg" />
             <Text>
                 <div>Hey.</div>
                 <div>Welcome to <span style={{fontWeight:"900"}}>Big Picture</span> a responsive site template designed by <span className="underLine">HTML5 UP</span> and released for free under the <span className="underLine">Creative Commons Attribution license.</span></div>

@@ -7,10 +7,11 @@ import { scroll } from "../atom";
 const Container=styled.div`
     width:100vw;
     height:100vh;
-    background-image: url("images/one.jpg");
+    background-image: url("images/2.jpg");
     background-repeat: no-repeat;
     background-size:cover;
     position:relative;
+    z-index:20;
 `;
 const TextBox=styled(motion.div)`
     width:55%;
@@ -20,7 +21,7 @@ const TextBox=styled(motion.div)`
     right:0;
     top:50%;
     padding: 0 40px;
-    padding-top:40px;
+
     box-sizing: border-box;
     color:#39454B;
     & > h1{

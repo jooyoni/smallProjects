@@ -7,10 +7,13 @@ import { scroll } from "../atom";
 const Container=styled.div`
     width:100vw;
     height:100vh;
-    background-image: url("images/one.jpg");
+    background-image: url("images/3.jpg");
     background-repeat: no-repeat;
     background-size:cover;
-    position:relative;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:10;
 `;
 const TextBox=styled(motion.div)`
     width:55%;
@@ -21,7 +24,6 @@ const TextBox=styled(motion.div)`
     top:50%;
     transform:translateY(-50%);
     padding: 0 40px;
-    padding-top:40px;
     box-sizing: border-box;
     color:#39454B;
     & > h1{
@@ -56,9 +58,8 @@ function Three(){
     const cardAni=useAnimation();
     const component=useRef();
     const scrollValue=useRecoilValue(scroll);
-
     useEffect(()=>{
-        if(scrollValue+component.current.clientHeight>component.current.offsetTop+component.current.clientHeight/2)
+        if(scrollValue+window.innerHeight>window.innerHeight*2.5&&scrollValue+window.innerHeight<window.innerHeight*3.3)
             cardAni.start({x:0});
         else
             cardAni.start({x:"-100%"});

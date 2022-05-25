@@ -4,6 +4,7 @@ import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { scroll } from "./atom";
 import First from "./Components/First";
+import Four from "./Components/Four";
 import Header from "./Components/Header";
 import Three from "./Components/Three";
 import Two from "./Components/Two";
@@ -16,8 +17,7 @@ const Container=styled.div`
   position:relative;
   width:100vw;
   overflow-x:hidden;
-  box-sizing: border-box;
-  
+  box-sizing: border-box;  
 `;
 const Filter=styled(motion.div)`
   position:absolute;
@@ -27,6 +27,10 @@ const Filter=styled(motion.div)`
   height:100%;
   z-index:100;
   background-color:white;
+`;
+const Space=styled.div`
+  width:100%;
+  height:100vh;
 `;
 function App() {
   const filterAni=useAnimation();
@@ -44,8 +48,11 @@ function App() {
     <Container className="container">
       <Header />
       <First />
+      <Space />
       <Two />
       <Three />
+      <Space />
+      <Four />
       <Filter initial={{opacity:1}} animate={filterAni} transition={{duration:2}} />
     </Container>
   );

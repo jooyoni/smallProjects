@@ -1,6 +1,10 @@
+import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { scroll } from "../atom";
 
-const Container=styled.div`
+const Container=styled(motion.div)`
     display:flex;
     justify-content:space-between;
     position:fixed;
@@ -9,8 +13,7 @@ const Container=styled.div`
     width:100%;
     padding:0 15px;
     box-sizing: border-box;
-    z-index:10;
-    background-color: white;
+    z-index:100;
 `;
 const Logo=styled.h1`
     color:#39454b;
@@ -31,8 +34,9 @@ const Menu=styled.ul`
     }
 `;
 function Header(){
+    const scrollValue=useRecoilValue(scroll);
     return (
-        <Container>
+        <Container initial={{backgroundColor:"rgba(255,255,255,0)"}} animate={{ backgroundColor:scrollValue>80?"rgba(255,255,255,1)":"rgba(255,255,255,0)" }}>
             <Logo>Big Picture</Logo>
             <Menu>
                 <li>Intro</li>
