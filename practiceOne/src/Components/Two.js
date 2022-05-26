@@ -22,9 +22,13 @@ const TextBox=styled(motion.div)`
     right:0;
     top:50%;
     padding: 0 40px;
-
     box-sizing: border-box;
     color:#39454B;
+    transform:translateX(0);
+    @media screen and (max-width:720px){
+        width:90%;
+        right:5px;
+    }
     & > h1{
         font-size:40px;
     }
@@ -52,6 +56,9 @@ const ArrowBtn=styled.div`
     &:hover{
         background-color:rgba(255,255,255,0.1);
     }
+    @media screen and (max-width:720px){
+        display:none;
+    }
 `;
 function Two(){
     const cardAni=useAnimation();
@@ -65,7 +72,7 @@ function Two(){
             cardAni.start({x:"100%"});
     },[scrollValue]);
     function nextPage(){
-        window.scrollTo({top:window.innerHeight*2 ,behavior:"smooth"})
+        window.scrollTo({top:window.innerHeight*2, behavior:"smooth"})
     }
     return (
         <Container ref={component}>

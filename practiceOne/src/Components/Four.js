@@ -5,19 +5,24 @@ import styled from "styled-components";
 import { scroll } from "../atom";
 
 const Container=styled.div`
-    padding:0 25vw;
-    padding-top:100px;
+    padding:100px 25vw;
     z-index:200;
     position:relative;
     background:white;
+    @media screen and (max-width:1200px){
+        padding:100px 5vw;
+    }
 `;
 const Text=styled.div`
     line-height: 30px;
     text-align: center;
     color:#39454B;
     & > h1{
-        font-size:51px;
+        font-size:45px;
         color:#39454B;
+        @media screen and (max-width:1200px){
+            font-size:39px;
+        }
     }
     & > span{
         font-size:22px;
